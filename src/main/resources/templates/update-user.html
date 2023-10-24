@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update User</title>
+</head>
+<body>
+<form th:action="@{save}" method="post">
+    <input type="hidden" name="id" th:value="${user.getId()}">
+    <input type="hidden" name="username" th:value="${user.getUsername()}">
+    <input type="hidden" name="password" th:value="${user.getPassword()}">
+    <div>
+        <label>First Name:</label>
+        <input type="text" name="firstname" required th:value="${user.getFirstname()}">
+    </div>
+    <div>
+        <label>Last Name:</label>
+        <input type="text" name="lastname" required th:value="${user.getLastname()}">
+    </div>
+    <div>
+        <label>Role:</label>
+        <select name="role">
+            <option th:value="ADMIN">ADMIN</option>
+            <option th:value="USER">USER</option>
+        </select>
+    </div>
+    <div>
+        <label>Address:</label>
+        <input type="text" name="address" th:value="${user.getAddress()}">
+    </div>
+    <div>
+        <label>Phone:</label>
+        <input type="number" name="phone" th:value="${user.getPhone()}">
+    </div>
+    <div>
+        <label>Email:</label>
+        <input type="email" name="email" required th:value="${user.getEmail()}">
+    </div>
+    <div>
+        <button type="submit">Submit</button>
+    </div>
+</form>
+<div>
+    <a th:href="@{/admin/user}">Back to user manage</a>
+</div>
+</body>
+</html>

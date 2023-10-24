@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cart Page</title>
+</head>
+<body>
+<h1>This is cart page</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="cart:${carts}">
+        <td style="width:100px">
+            <img th:src="@{${cart.product.image}}">
+        </td>
+        <td>[[${cart.product.name}]]</td>
+        <td>[[${cart.product.price}]]</td>
+        <td>[[${cart.quantity}]]</td>
+        <td>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

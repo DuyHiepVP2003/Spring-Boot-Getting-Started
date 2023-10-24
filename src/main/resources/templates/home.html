@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <style>
+        table, th, td {
+            border: 1px solid;
+        }
+        img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            object-position: center center;
+        }
+    </style>
+</head>
+<body>
+    <h1>This is home page</h1>
+    <a th:href="@{/admin}">Go admin page</a>
+    <a th:href="@{/cart}">Go to cart</a>
+    <nav>
+        <ul>
+            <li><a th:href="@{/home}">All</a></li>
+            <li th:each="category:${categories}">
+                <a th:href="@{'/home/'+${category.id}}">[[${category.name}]]</a>
+            </li>
+        </ul>
+    </nav>
+    <div>
+        <h1>Products</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Image</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="product:${products}">
+                    <td>[[${product.name}]]</td>
+                    <td>
+                        <img th:src="@{${product.image}}">
+                    </td>
+                    <td>[[${product.description}]]</td>
+                    <td>[[${product.price}]]</td>
+                    <td>
+                        <form th:action="@{'/home/add-to-cart/'+ ${product.id}}" method="post">
+                            <button type="submit">Add To Cart</button>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

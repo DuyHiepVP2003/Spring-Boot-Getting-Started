@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin</title>
+</head>
+<body>
+<h1>This is admin page</h1>
+<p>Hello [[${session.username}]] <a href="/logout">Logout</a></p>
+<div>
+    <a th:href="@{/home}">Back To Home</a>
+</div>
+<div>
+    <a th:href="@{admin/user}">Manage User</a>
+</div>
+<div>
+    <a th:href="@{admin/product}">Manage Product</a>
+</div>
+<div>
+    <a th:href="@{admin/category}">Manage Category</a>
+</div>
+</body>
+</html>
